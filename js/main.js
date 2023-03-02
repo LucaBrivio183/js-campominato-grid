@@ -34,14 +34,11 @@ generateButton.addEventListener('click',
     }
     let cell = document.querySelectorAll('li');
     console.log(cell);
+    cell.forEach(addEventListener('click', 
+    function() {
+        cell.classList.add('clicked-cell');
+    }
+    ));
 }
 );
 
-//add clickable li items
-
-
-cell.forEach(addEventListener('click', 
-function() {
-    cell.classList.add('clicked-cell');
-}
-));
