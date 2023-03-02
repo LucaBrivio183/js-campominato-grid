@@ -33,12 +33,11 @@ generateButton.addEventListener('click',
         appendElement(newElement, grid);
     }
     let cell = document.querySelectorAll('li');
-    console.log(cell);
-    cell.forEach(addEventListener('click', 
-    function() {
-        cell.classList.add('clicked-cell');
-    }
-    ));
+    cell.forEach(function (element) {
+        element.addEventListener('click', function() {
+              element.classList.add('clicked-cell');
+          });
+      });
 }
 );
 
