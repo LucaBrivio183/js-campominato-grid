@@ -1,4 +1,9 @@
-/* reset */
+/* ______________
+
+RESET
+
+__________________*/
+
 
 * {
     padding: 0;
@@ -6,7 +11,12 @@
     box-sizing: border-box;
 }
 
-/* common */
+/* ______________
+
+COMMON
+
+__________________*/
+
 
 body {
     background-color: #7fffd4;
@@ -16,6 +26,14 @@ body {
     flex-direction: column;
 }
 
+img {
+    object-fit: cover;
+    width: 100%;
+    display: block;
+}
+
+/* header */
+
 header,footer {
     background-color: white;
     display: flex;
@@ -24,6 +42,28 @@ header,footer {
     padding: 2.5rem;
 }
 
+header>div {
+    display: flex;
+    gap: .625rem;
+    align-items: center;
+}
+
+.logo-box {
+    width: 3.125rem;
+}
+
+header h1 {
+    font-size: 2.5vw;
+}
+
+/* footer */
+
+footer {
+    font-size: 1vw;
+}
+
+/* main */
+
 main {
     flex-grow: 1;
     display: flex;
@@ -31,8 +71,18 @@ main {
     align-items: center;
 }
 
-img {
-    object-fit: cover;
-    width: 100%;
-    display: block;
+main .grid  {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    width: 60vw;
+    height: 60vw;
+    align-content: flex-start;
+    padding: .625rem;
+}
+
+main .grid li {
+    border: 1px solid  black;
+    width: calc(100%/10);
+    height: calc(100%/10);
 }
