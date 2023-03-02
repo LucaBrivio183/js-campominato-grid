@@ -83,6 +83,12 @@ main .grid  {
 
 main .grid li {
     border: 1px solid  black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell-10 {
     width: calc(100%/10);
-    height: calc(100%/10);
+    height: calc(100%/10);   
 }
