@@ -13,7 +13,6 @@ function createClassElement(elementHTML, className) {
 }
 
 //function for  appending element 
-
 function appendElement(element, parentElement) {
     parentElement.appendChild(element);
   }
@@ -22,10 +21,25 @@ function appendElement(element, parentElement) {
 
 //define grid variable from DOM
 const grid = document.querySelector('.grid');
+//const for recalling  generate-btn
+const generateButton = document.getElementById('generate-btn');
 
-for (let i=1; i<=100; i++) {
-    const newElement = createClassElement('li','cell-10');
-    newElement.innerHTML = `${i}`;
-    appendElement(newElement, grid);
+generateButton.addEventListener('click', 
+    function() {
+        grid.innerHTML = '';
+    for (let i=1; i<=100; i++) {
+        const newElement = createClassElement('li','cell-10');
+        newElement.innerHTML = `${i}`;
+        appendElement(newElement, grid);
+    }
 }
+);
 
+//add clickable li items
+let cell = document.querySelectorAll('li');
+
+cell.forEach(addEventListener('click', 
+function() {
+    cell.classList.add('clicked-cell');
+}
+));
