@@ -30,21 +30,40 @@ generateButton.addEventListener('click',
     function() {
         grid.innerHTML = ''; //empty  the grid every click of play button
         let difficultyValue = difficulty.value;
+        console.log (difficultyValue);
         let gridLength = 100;
-        let cellClass = 'cell-10'
-        if (difficultyValue === 2) {
-                gridLength = 81;
-                cellClass = 'cell-9'
-        } else  if (difficultyValue === 3) {
-            gridLength = 49;
-            cellClass = 'cell-7'
-        } 
-     
-        for (let i=1; i<=gridLength; i++) { 
-            const newElement = createClassElement('li',cellClass);
-            newElement.innerHTML = `${i}`;
-            appendElement(newElement, grid);
-        }
+        let cellClass = 'cell-10';
+
+        switch (difficultyValue) {
+            case 2:
+              gridLength = 81;
+              cellClass = 'cell-9';
+                for (let i=1; i<=gridLength; i++) { 
+                    const newElement = createClassElement('li',cellClass);
+                    newElement.innerHTML = `${i}`;
+                    appendElement(newElement, grid);
+                };
+            break;
+            case 3:
+              gridLength = 49;
+              cellClass = 'cell-7';
+                for (let i=1; i<=gridLength; i++) { 
+                    const newElement = createClassElement('li',cellClass);
+                    newElement.innerHTML = `${i}`;
+                    appendElement(newElement, grid);
+                };
+            break;
+            default:
+              gridLength = 100;
+              cellClass = 'cell-10';
+                for (let i=1; i<=gridLength; i++) { 
+                    const newElement = createClassElement('li',cellClass);
+                    newElement.innerHTML = `${i}`;
+                 appendElement(newElement, grid);
+                };
+        };
+
+        
     let cell = document.querySelectorAll('li');//select all cells
     cell.forEach(function (element) { //create an element for every cell
         element.addEventListener('click', function() {//waitfor click on cell
@@ -53,3 +72,18 @@ generateButton.addEventListener('click',
       });
 }
 );
+
+
+switch (difficultyValue) {
+  case 2:
+    gridLength = 81;
+    cellClass = 'cell-9';
+    break;
+  case 3:
+    gridLength = 49;
+    cellClass = 'cell-7';
+    break;
+  default:
+    gridLength = 100;
+    cellClass = 'cell-10';
+} 
