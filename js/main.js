@@ -32,11 +32,13 @@ generateButton.addEventListener('click',
         newElement.innerHTML = `${i}`;
         appendElement(newElement, grid);
     }
+    let cell = document.querySelectorAll('li');
+    console.log(cell);
 }
 );
 
 //add clickable li items
-let cell = document.querySelectorAll('li');
+
 
 cell.forEach(addEventListener('click', 
 function() {
