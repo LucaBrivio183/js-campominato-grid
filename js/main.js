@@ -4,18 +4,26 @@
 
 //functions
 
-//function for creating html element with specific class 
+//create grid function
 
-function createClassElement(elementHTML, className) {
-    let newElement = document.createElement(elementHTML);
-    newElement.classList.add(className);
-    return newElement;
+function createGrid(cellNumber) {
+
+    let  fragmentGrid = document.createDocumentFragment();
+    
+    for (let i=1; i<=cellNumber; i++) { 
+        const element = document.createElement('li');
+        element.classList.add('cell');
+        element.style.width = `calc(100% / ${Math.sqrt(cellNumber)})`;
+        element.style.height = element.style.width;
+        element.innerText = i;
+        element.addEventListener('click', function(){
+            element.classList.add('clicked-cell');
+        })
+
+        fragmentGrid.append(element);
+    }
+    return fragmentGrid;
 }
-
-//function for  appending element 
-function appendElement(element, parentElement) {
-    parentElement.appendChild(element);
-  }
 
 //main
 
@@ -30,60 +38,29 @@ generateButton.addEventListener('click',
     function() {
         grid.innerHTML = ''; //empty  the grid every click of play button
         let difficultyValue = difficulty.value;
-        console.log (difficultyValue);
-        let gridLength = 100;
-        let cellClass = 'cell-10';
+        let cellNumber =100;
 
-        switch (difficultyValue) {
-            case 2:
-              gridLength = 81;
-              cellClass = 'cell-9';
-                for (let i=1; i<=gridLength; i++) { 
-                    const newElement = createClassElement('li',cellClass);
-                    newElement.innerHTML = `${i}`;
-                    appendElement(newElement, grid);
-                };
+    switch (difficultyValue){
+        case 2:
+            cellNumber = 81;
             break;
-            case 3:
-              gridLength = 49;
-              cellClass = 'cell-7';
-                for (let i=1; i<=gridLength; i++) { 
-                    const newElement = createClassElement('li',cellClass);
-                    newElement.innerHTML = `${i}`;
-                    appendElement(newElement, grid);
-                };
-            break;
-            default:
-              gridLength = 100;
-              cellClass = 'cell-10';
-                for (let i=1; i<=gridLength; i++) { 
-                    const newElement = createClassElement('li',cellClass);
-                    newElement.innerHTML = `${i}`;
-                 appendElement(newElement, grid);
-                };
-        };
+        case 3:
+            cellNumber = 49;
+            break;  
+        case 1: 
+        default:
+            cellNumber =100;
+    }
 
-        
-    let cell = document.querySelectorAll('li');//select all cells
-    cell.forEach(function (element) { //create an element for every cell
-        element.addEventListener('click', function() {//waitfor click on cell
-              element.classList.add('clicked-cell'); //add css class at click
-          });
-      });
+    const fragmentGrid = createGrid(cellNumber);
+    grid.append(fragmentGrid);
 }
 );
 
 
-switch (difficultyValue) {
-  case 2:
-    gridLength = 81;
-    cellClass = 'cell-9';
-    break;
-  case 3:
-    gridLength = 49;
-    cellClass = 'cell-7';
-    break;
-  default:
-    gridLength = 100;
-    cellClass = 'cell-10';
-} 
+//let cell = document.querySelectorAll('li');//select all cells
+//cell.forEach(function (element) { //create an element for every cell
+    //element.addEventListener('click', function() {//waitfor click on cell
+          //element.classList.add('clicked-cell'); //add css class at click
+      //});
+  //});

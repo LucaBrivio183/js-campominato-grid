@@ -83,7 +83,7 @@ main .grid  {
 }
 
 main .grid li {
-    border: 1px solid  black;
+    outline: 1px solid  black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,19 +92,4 @@ main .grid li {
 
 .clicked-cell {
     background-color: blue;
-}
-
-.cell-10 {
-    width: calc(100%/10);
-    height: calc(100%/10);   
-}
-
-.cell-9 {
-    width: calc(100%/9);
-    height: calc(100%/9);   
-}
-
-.cell-7 {
-    width: calc(100%/7);
-    height: calc(100%/7);   
 }
