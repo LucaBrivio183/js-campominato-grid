@@ -31,15 +31,16 @@ function createGrid(cellNumber) {
 const grid = document.querySelector('.grid');
 //const for recalling  generate-btn
 const generateButton = document.getElementById('generate-btn');
-const difficulty = document.getElementById('difficulty');
+let difficulty = document.getElementById('difficulty');
 
 
 generateButton.addEventListener('click', 
     function() {
         grid.innerHTML = ''; //empty  the grid every click of play button
         let difficultyValue = difficulty.value;
-        let cellNumber =100;
-
+        let cellNumber ;
+        console.log (difficultyValue);
+        
     switch (difficultyValue){
         case 2:
             cellNumber = 81;
@@ -52,6 +53,7 @@ generateButton.addEventListener('click',
             cellNumber =100;
     }
 
+    console.log (cellNumber);
     const fragmentGrid = createGrid(cellNumber);
     grid.append(fragmentGrid);
 }
